@@ -37,3 +37,6 @@ def get():
             else:
                 num = int(list(details)[1].string)
                 check(list(details)[0].string,num)
+
+if __name__ == "__main__":
+    get()                    

@@ -35,4 +35,6 @@ def check(name,num):
         upload(name,view_list)
         ws(name,data[0],data[1])
         
-        
+
+if __name__ == "__main__":
+    check()            

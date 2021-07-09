@@ -17,3 +17,5 @@ def upload(name,data):
                 "view" : data
             }})
            
+if __name__ == "__main__":
+    upload()    

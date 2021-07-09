@@ -1,6 +1,7 @@
 from channels.generic.websocket import WebsocketConsumer
 import asyncio
 import json
+import os
 
 from .get import get
 
@@ -13,15 +14,16 @@ class WSConsumer(WebsocketConsumer):
         pass
 
     async def send(self):
-        await asyncio.sleep(60)
         get()
-
-    async def ws(name,date,view):
-        data = {
-            "name" : name,
-            "date" : date,
-            "view" : view,
-        }        
+        await asyncio.sleep(60)
+        with open("my.log") as f:
+            f = f.readlines()
+            for line in f:
+                new_line = line[10:]
+                data = json.dumps(eval(new_line))
+                self.send(text_data=json.dumps(data))
+                if os.path.exists("my.log"):
+                    os.remove("my.log")
 
     asyncio.run(send())
 

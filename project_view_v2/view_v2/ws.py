@@ -1,6 +1,17 @@
-import asyncio
-import websockets
+import logging 
 import json
 
-from .consumers import WebsocketConsumer
+def ws(name,date,view):
+    logging.basicConfig(level=logging.INFO,
+                    handlers=[logging.FileHandler('my.log','w','utf-8')])
 
+    data = {
+            "name" : name,
+            "date" : date,
+            "view" : view,
+        }
+
+    logging.info(json.dumps(data))
+
+if __name__ == "__main__":
+    ws()    
