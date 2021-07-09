@@ -1,6 +1,9 @@
 from channels.generic.websocket import WebsocketConsumer
 import asyncio
+import json
+
 from .get import get
+
 
 class WSConsumer(WebsocketConsumer):
     def connect(self):
@@ -9,8 +12,18 @@ class WSConsumer(WebsocketConsumer):
     def disconnect(self):
         pass
 
+    async def send(self):
+        await asyncio.sleep(60)
+        get()
 
-    asyncio.get_event_loop().run_forever()
+    async def ws(name,date,view):
+        data = {
+            "name" : name,
+            "date" : date,
+            "view" : view,
+        }        
+
+    asyncio.run(send())
 
     
 
