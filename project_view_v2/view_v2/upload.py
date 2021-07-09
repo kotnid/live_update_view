@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 
 from .ws import ws
+
 cluster = MongoClient(
     "mongodb+srv://bot:12345@data.3cfot.mongodb.net/data?retryWrites=true&w=majority"
 )
