@@ -52,7 +52,7 @@ def main():
 
 
 def upload(name,num):
-    current_time = datetime.datetime.today().strftime("%Y/%m/%d")
+    current_time = datetime.datetime.today().strftime("%Y/%m/%d %H:%M")
     data = [current_time,num]
     myquery = {"_id" : name}
     array = []
@@ -66,7 +66,7 @@ def upload(name,num):
     user = collection.find_one(query)
     view_list = user["view"]
     
-    if view_list[-1] == data:
+    if view_list[-1][1] == data[1]:
         pass
     else:
         view_list.append(data)
