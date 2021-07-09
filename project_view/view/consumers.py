@@ -1,4 +1,7 @@
+import json
+
 from channels.generic.websocket import WebsocketConsumer
 
 class WSConsumer(WebsocketConsumer):
-    pass
+    def connect(self):
+        self.accept()          
