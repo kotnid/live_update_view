@@ -2,6 +2,7 @@ import datetime
 from pymongo import MongoClient
 
 from .upload import upload
+from .ws import ws
 
 cluster = MongoClient(
     "mongodb+srv://bot:12345@data.3cfot.mongodb.net/data?retryWrites=true&w=majority"
@@ -32,4 +33,6 @@ def check(name,num):
     else:
         view_list.append(data)
         upload(name,view_list)
+        ws(name,data[0],data[1])
+        
         

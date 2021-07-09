@@ -1,6 +1,7 @@
 from channels.generic.websocket import WebsocketConsumer
-
+import asyncio
 from .get import get
+
 class WSConsumer(WebsocketConsumer):
     def connect(self):
         self.accept()
@@ -8,8 +9,10 @@ class WSConsumer(WebsocketConsumer):
     def disconnect(self):
         pass
 
-    while True:
-        get()
+
+    asyncio.get_event_loop().run_forever()
+
+    
 
 
         
