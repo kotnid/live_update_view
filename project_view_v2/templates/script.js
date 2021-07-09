@@ -1,2 +1,2 @@
-const ws = new WebSocket('ws://localhost:8964')
+const ws = new WebSocket('ws://localhost/ws/msg')
 
