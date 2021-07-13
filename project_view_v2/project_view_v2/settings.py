@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'view_v2',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
