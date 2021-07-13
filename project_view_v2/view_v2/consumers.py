@@ -2,6 +2,7 @@ from channels.generic.websocket import WebsocketConsumer
 import asyncio
 import json
 import os
+import schedule
 
 from .get import get
 
@@ -24,10 +25,6 @@ class WSConsumer(WebsocketConsumer):
                     data = json.dumps(eval(new_line))
                     self.send(text_data=json.dumps(data))
                     os.remove("my.log")
-        except:
-            pass            
-
-    asyncio.run(send())
 
     
 
