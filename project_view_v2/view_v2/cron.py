@@ -3,6 +3,9 @@ import json
 
 from .get import get
 
+import websockets 
+
+
 def get_view():
     get()
     try:
@@ -14,4 +17,4 @@ def get_view():
                     self.send(text_data=json.dumps(data))
                     os.remove("my.log")
     except:
-        pass                    
+        pass     
